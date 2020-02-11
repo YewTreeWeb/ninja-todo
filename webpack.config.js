@@ -28,15 +28,4 @@ module.exports = {
 		filename: '[name].js',
 		chunkFilename: '[name].bundle.js'
 	}
-	// externals: {
-	// 	jquery: 'jQuery'
-	// },
-	// plugins: [
-	// 	// Set dependencies in global scope
-	// 	// https://webpack.js.org/plugins/provide-plugin/
-	// 	new webpack.ProvidePlugin({
-	// 		$: 'jquery',
-	// 		jQuery: 'jquery'
-	// 	})
-	// ]
 };

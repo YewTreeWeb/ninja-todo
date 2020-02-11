@@ -1,0 +1,86 @@
+/// Vendors
+@import '../vendors/normalize.css/normalize.css';
+@import '../vendors/bulma/bulma.sass';
+@import '../vendors/include-media/dist/include-media';
+@import '../vendors/system-font-css/system-font.scss';
+@import '../vendors/bourbon/core/bourbon';
+/// Helper files.
+@import './helpers/functions';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+$black: _colour('black');
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	@include font(em($font-base), $family-base, $weight-light, 1);
+}
+
+@each $heading, $size in $headings {
+	#{$heading} {
+		@include font(em($size), $family-base, $weight, 1.5);
+	}
+}
+
+a {
+	@include call-to-action {
+		color: _colour('accent-dark');
+	}
+}
+
+.navbar {
+	&-item {
+		@include call-to-action {
+			color: _colour('accent-dark') !important;
+		}
+	}
+}
+
+.hero {
+	&.is-primary {
+		background-color: _colour('accent');
+	}
+	&.is-primary.is-bold {
+		background-image: linear-gradient(135deg, _colour('accent-dark') 10%, _colour('accent') 100%);
+	}
+
+	.title {
+		font-size: $font-hero;
+	}
+	.subtitle {
+		margin-top: unset !important;
+	}
+}
+
+.quiz-form {
+	.question {
+		@include font(em(_heading('h6')), $family-base, $weight-heavy, 1.5);
+		@include margin(20px null);
+	}
+	.field {
+		.control {
+			@include flex(center, flex-start, row);
+			label {
+				@include flex(center, space-between);
+				width: fit-content;
+				&:last-of-type {
+					margin-left: 2%;
+				}
+				input {
+					margin-right: 10px;
+				}
+			}
+			button {
+				margin-top: em(30px);
+				text-transform: uppercase;
+				background-color: _colour('accent-dark');
+				transition: background-color 0.35s ease-in-out-cubic, box-shadow 0.35s ease-in-out-cubic;
+				@include call-to-action(true, false, false) {
+					background-color: lighten(_colour('accent-dark'), 3.5%);
+					box-shadow: 0px 5px 10px hex2hsla(#000, 0.5);
+				}
+			}
+		}
+	}
+}

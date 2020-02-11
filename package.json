@@ -1,16 +1,18 @@
 {
-  "name": "modern-javascript",
+  "name": "ninja-quiz",
   "version": "1.0.0",
   "description": "udemy course by net ninja",
   "main": "gulpfile.babel.js",
-  "repository": "git@github.com:YewTreeWeb/modern-javascript.git",
+  "repository": "git@github.com:YewTreeWeb/ninja-quiz.git",
   "author": "Mathew Teague <mathew.teague@yewtreeweb.co.uk>",
   "license": "MIT",
   "dependencies": {
     "airbnb-browser-shims": "^3.3.0",
+    "bourbon": "^6.0.0",
     "bulma": "^0.8.0",
     "codyhouse-framework": "^2.2.4",
     "include-media": "^1.4.9",
+    "normalize.css": "^8.0.1",
     "system-font-css": "^2.0.2"
   },
   "devDependencies": {

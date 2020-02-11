@@ -1,0 +1,27 @@
+/// Colours
+$colours: (
+		black: #000,
+		white: #fff,
+		accent: #ffaa85,
+		accent-dark: #b3315f,
+		grey: #3b4252,
+		grey-dark: #242830,
+		grey-light: #f8f8f8
+	)
+	!default;
+
+/// Font
+$family-base: quote(Barlow), system-ui, sans-serif;
+$family-banner: quote(Lombok), system-ui, sans-serif;
+
+$headings: (h1: 40px, h2: 35px, h3: 30px, h4: 25px, h5: 20px, h6: 18px) !default;
+
+$font-md: 17px;
+$font-base: 16px;
+$font-sm: 14px;
+$font-xs: 12px;
+$font-hero: 122px;
+
+$weight: 400;
+$weight-light: 100;
+$weight-heavy: 700;
