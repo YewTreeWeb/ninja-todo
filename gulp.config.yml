@@ -1,0 +1,50 @@
+browsersync:
+  debug: true
+  notify: true
+  open: false
+  port: 3000
+  preferences:
+    clicks: false
+    scroll: false
+
+copy:
+  html:
+    dest: "./dist"
+    src: "./src/*.html"
+  vendors:
+    css: "./dist/assets/css"
+    js: "./dist/assets/js"
+    src: "./src/vendors/**/*"
+
+fonts:
+  dest: "./dist/assets/fonts"
+  src: "./src/fonts/*"
+
+## Images
+image:
+  dest: "./dist/assets/images"
+  src: "./src/images/**/*.+(jpg|jpeg|png|svg|gif)"
+  webp:
+    - "./src/assets/images/**/*.+(jpg|jpeg|png)"
+    - "!./src/assets/images/*.svg"
+    - "!./src/assets/images/favicons/*"
+
+js:
+  dest: "./dist/assets/js"
+  src: "./src/js/app.js"
+
+sass:
+  dest: "./dist/assets/styles"
+  src: "./src/styles/app.scss"
+
+vendors:
+  dest: "./src/vendors"
+  notification: "No dependencies found."
+
+### Watch files
+watch:
+  fonts: "./src/fonts/*"
+  html: "./src/*.html"
+  js: "./src/js/**/*.js"
+  images: "src/images/**/*"
+  scss: "./src/styles/**/*.scss"
