@@ -9,8 +9,6 @@
 @import './helpers/variables';
 @import './helpers/mixins';
 
-$black: _colour('black');
-
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -24,9 +22,14 @@ body {
 }
 
 a {
+	color: _colour('accent-dark');
 	@include call-to-action {
-		color: _colour('accent-dark');
+		color: _colour('accent');
 	}
+}
+
+footer {
+	background-color: #f8f8f8;
 }
 
 .navbar {
@@ -50,6 +53,24 @@ a {
 	}
 	.subtitle {
 		margin-top: unset !important;
+	}
+}
+
+.score {
+	transition: max-height 0.25s ease-in-out;
+	background-color: _colour('accent');
+	height: auto;
+	max-height: 0;
+	display: none;
+	&__content {
+		display: none;
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+		text-align: center;
+	}
+	&__number {
+		font-size: _heading('h2');
+		font-weight: $weight-heavy;
 	}
 }
 
