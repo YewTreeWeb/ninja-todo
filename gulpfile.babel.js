@@ -373,6 +373,7 @@ export const build = series(
 	env,
 	parallel(clean_dist, clean_cache),
 	vendorTask,
+	copyVendors,
 	parallel(sass, js, fonts, images, copyHtml),
 	parallel(webpImg, html),
 	deploy
@@ -384,6 +385,7 @@ export const build = series(
 export const dev = series(
 	parallel(env, clean_dist),
 	vendorTask,
+	copyVendors,
 	parallel(sass, js, fonts, images, copyHtml),
 	webpImg,
 	serve
