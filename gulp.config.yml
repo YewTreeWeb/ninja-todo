@@ -14,7 +14,9 @@ copy:
   vendors:
     css: "./dist/assets/css"
     js: "./dist/assets/js"
-    src: "./src/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"
+    src:
+      - "./src/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"
+      - "./src/vendors/@fortawesome/fontawesome-pro/js/all.min.js"
 
 fonts:
   dest: "./dist/assets/fonts"

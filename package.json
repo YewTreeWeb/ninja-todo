@@ -7,6 +7,8 @@
   "author": "Mathew Teague <mathew.teague@yewtreeweb.co.uk>",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-pro": "^5.12.1",
     "airbnb-browser-shims": "^3.3.0",
     "bootstrap": "^4.4.1",
     "bourbon": "^6.0.0",

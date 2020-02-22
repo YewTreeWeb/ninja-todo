@@ -8,3 +8,48 @@
 @import './helpers/functions';
 @import './helpers/variables';
 @import './helpers/mixins';
+
+:root {
+	@each $name, $colour in $colours {
+		--colour-#{$name}: #{hex2hsl($colour)};
+	}
+}
+
+body {
+	background: v(colour-primary);
+}
+.container {
+	max-width: 400px;
+}
+header {
+	h1 {
+		margin-top: em(30px);
+	}
+}
+input[type=text],
+input[type=text]:focus {
+	color: v(colour-white);
+	border: none;
+	background: hex2hsla(#000, 0.2);
+	max-width: 400px;
+}
+.todos li {
+	background: v(colour-primary-dark);
+}
+.delete {
+	cursor: pointer;
+	z-index: 1;
+	position: relative;
+	right: 0;
+	font-size: _heading(h6);
+}
+
+footer {
+	@include padding(10rem null);
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+	width: 100%;
+}
