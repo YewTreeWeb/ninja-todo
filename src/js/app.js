@@ -24,8 +24,7 @@ const generateTemplate = (todo) => {
 // delete todo
 list.addEventListener('click', (e) => {
 	if (e.target.classList.contains('delete')) {
-		console.log('delete');
-		console.log(e);
+		console.log('deleted');
 		e.target.parentElement.remove();
 	}
 });
