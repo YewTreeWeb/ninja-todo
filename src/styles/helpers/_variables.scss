@@ -2,19 +2,20 @@
 $colours: (
 		black: #000,
 		white: #fff,
-		primary: #352f5b,
-		primary-dark: #423a6f,
-		grey: #3b4252,
-		grey-dark: #242830,
-		grey-light: #f8f8f8
+		primary: #5e81ac,
+		primary-light: #81a1c1,
+		grey: #434c5e,
+		grey-dark: #2e3440,
+		grey-light: #e5e9f0,
+		grey-lighter: #eceff4
 	)
 	!default;
 
 /// Font
-$family-base: quote(Barlow), system-ui, sans-serif;
-$family-banner: quote(Lombok), system-ui, sans-serif;
+$family-header: quote(Odibee Sans), system-ui, sans-serif;
+$family-base: quote(Ubuntu), system-ui, sans-serif;
 
-$headings: (h1: 40px, h2: 35px, h3: 30px, h4: 25px, h5: 20px, h6: 18px) !default;
+$headings: (h1: 50px, h2: 35px, h3: 30px, h4: 25px, h5: 20px, h6: 18px) !default;
 
 $font-md: 17px;
 $font-base: 16px;

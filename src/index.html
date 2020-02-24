@@ -5,11 +5,15 @@
     <meta name="description" content="">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ninja Quiz</title>
+    <title>Ninja Todo</title>
     <link rel="apple-touch-icon" href="/assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" href="/assets/images/favicons/favicon.ico">
+    <link rel="preconnect" href="https//fonts.googleapis.com" crossorigin importance="high">
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+    <link rel="prefetch" href="/assets/styles/app.css">
     <!-- Place favicon.ico in the root directory -->
     <!-- build:css styles/main.css -->
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans|Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles/app.css">
     <!-- endbuild -->
     <!-- <script src="/assets/js/fontawesome-pro/js/all.min.js" async></script> -->
@@ -25,24 +29,14 @@
 
         <header class="text-center text-light my-4">
           <h1 class="mb-4">Todo List</h1>
+          <p class="tagline">With added localStorage</p>
           <form class="search">
             <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
           </form>
         </header>
 
         <ul class="list-group todos mx-auto text-light">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>play mariokart</span>
-            <i class="far fa-trash-alt delete"></i>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>defeat ganon in zelda</span>
-            <i class="far fa-trash-alt delete"></i>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>make a veggie pie</span>
-            <i class="far fa-trash-alt delete"></i>
-          </li>
+          <li class="list-group-item list-group-item--default d-flex justify-content-between align-items-center">No items in list. Add a todo!</li>
         </ul>
 
         <form class="add text-center my-4">
@@ -57,13 +51,13 @@
             <p>Site by <a href="https://yewtreeweb.co.uk" target="_blank">Mathew Teague</a></p>
             <p>Content from tutorial series by <a href="https://www.udemy.com/modern-javascript-from-novice-to-ninja/"
                 target="_blank">iamshaunjp</a></p>
-            <p><a href="https://bulma.io/" target="_blank">Bootstrap</a></p>
+            <p><a href="https://getbootstrap.com/" target="_blank"><i class="fab fa-bootstrap"></i></a></p>
           </div>
         </div>
       </footer>
     </main>
     <!-- build:js scripts/main.js -->
-    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/app.js" defer></script>
     <!-- endbuild -->
   </body>
 </html>
