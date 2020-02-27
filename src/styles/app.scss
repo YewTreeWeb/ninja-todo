@@ -67,19 +67,21 @@ input[type=text]:focus {
 	background: hex2hsla(#000, 0.2);
 	max-width: 400px;
 }
+.no-todos {
+	background: hex2hsla(#000, 0.2);
+	min-height: 100px;
+	text-align: center;
+	font-size: _heading(h5);
+	border-radius: .25rem;
+	color: v(colour-grey-lighter);
+	padding: 15px 30px;
+	box-shadow: rgba(#000, 0.1) 0px 5px 20px;
+}
 .todos {
+	box-shadow: rgba(0, 0, 0, .1) 0 5px 20px;
 	li {
 		background: v(colour-primary-light);
 		display: block;
-		&.list-group-item--default {
-			background: hex2hsla(#000, 0.2);
-			min-height: 100px;
-			text-align: center;
-			font-size: _heading(h5);
-		}
-		&.list-group-item--has-todos {
-			display: none !important;
-		}
 	}
 }
 .delete {
@@ -90,7 +92,8 @@ input[type=text]:focus {
 	font-size: _heading(h6);
 }
 
-.filtered {
+.filtered,
+.hide {
 	display: none !important;
 }
 

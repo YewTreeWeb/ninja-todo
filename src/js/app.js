@@ -8,7 +8,7 @@ import './modules/helpers';
 
 const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
-const noTodo = document.querySelector('.list-group-item--default');
+const noTodo = document.querySelector('.no-todos');
 const todos = [];
 
 // Add new todo to the existing list.
@@ -51,8 +51,8 @@ list.addEventListener('click', (e) => {
 					todos.splice(index, 1);
 					console.log(todos.length);
 					if (todos.length === 0) {
-						noTodo.classList.remove('list-group-item--has-todos');
-						console.log(noTodo.classList);
+						noTodo.classList.remove('hide');
+						list.classList.add('hide');
 					}
 					saveTodo();
 				}
@@ -69,6 +69,9 @@ list.addEventListener('click', (e) => {
 addForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const todo = addForm.add.value.trim();
+	if (list.classList.contains('hide')) {
+		list.classList.remove('hide');
+	}
 	if (todo.length) {
 		generateTemplate(todo);
 		// Add the new value to the todos array.
@@ -78,10 +81,8 @@ addForm.addEventListener('submit', (e) => {
 		saveTodo();
 		addForm.reset();
 	}
-	if (todos.length > 0 && !noTodo.classList.contains('list-group-item--has-todos')) {
-		noTodo.classList.add('list-group-item--has-todos');
-		console.log(noTodo.classList);
-		console.log(todos.length);
+	if (todos.length > 0 && !noTodo.classList.contains('hide')) {
+		noTodo.classList.add('hide');
 	}
 });
 
@@ -99,17 +100,19 @@ if (typeof localStorage !== 'undefined') {
 		try {
 			// Get the keys within storage and add them to the todo list.
 			const savedTodo = JSON.parse(localStorage.getItem('todos'));
+			if (!noTodo.classList.contains('hide')) {
+				noTodo.classList.add('hide');
+			}
 			savedTodo.forEach((todo) => {
 				todos.push(todo);
 				generateTemplate(todo.title);
 			});
-			if (!noTodo.classList.contains('list-group-item--has-todos')) {
-				noTodo.classList.add('list-group-item--has-todos');
-				console.log(noTodo.classList);
-				console.log(todos.length);
-			}
 		} catch (e) {
 			localStorage.removeItem('todos');
+			if (noTodo.classList.contains('hide')) {
+				noTodo.classList.remove('hide');
+			}
+			list.classList.add('hide');
 			if (window.console) {
 				console.error(e);
 			}
