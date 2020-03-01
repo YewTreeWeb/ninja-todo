@@ -102,29 +102,31 @@ search.addEventListener("keyup", () => {
 // Check local storage
 if (typeof localStorage !== "undefined") {
   if (localForage.getItem("todos")) {
-    try {
-      // Get the keys within storage and add them to the todo list.
-      // const savedTodo = JSON.parse(localStorage.getItem('todos')); // localStorage
-      const savedTodo = await localForage.getItem("todos"); // localForage
-      // This code runs once the value has been loaded
-      // from the offline store.
-      if (!noTodo.classList.contains("hide")) {
-        noTodo.classList.add("hide");
+    (async () => {
+      try {
+        // Get the keys within storage and add them to the todo list.
+        // const savedTodo = JSON.parse(localStorage.getItem('todos')); // localStorage
+        const savedTodo = await localForage.getItem("todos"); // localForage
+        // This code runs once the value has been loaded
+        // from the offline store.
+        if (!noTodo.classList.contains("hide")) {
+          noTodo.classList.add("hide");
+        }
+        savedTodo.forEach(todo => {
+          todos.push(todo);
+          generateTemplate(todo.title);
+        });
+      } catch (e) {
+        localForage.removeItem("todos");
+        if (noTodo.classList.contains("hide")) {
+          noTodo.classList.remove("hide");
+        }
+        list.classList.add("hide");
+        if (window.console) {
+          // This code runs if there were any errors.
+          console.error(e);
+        }
       }
-      savedTodo.forEach(todo => {
-        todos.push(todo);
-        generateTemplate(todo.title);
-      });
-    } catch (e) {
-      localForage.removeItem("todos");
-      if (noTodo.classList.contains("hide")) {
-        noTodo.classList.remove("hide");
-      }
-      list.classList.add("hide");
-      if (window.console) {
-        // This code runs if there were any errors.
-        console.error(e);
-      }
-    }
+    })();
   }
 }
