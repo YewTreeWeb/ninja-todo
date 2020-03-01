@@ -14,6 +14,7 @@
     "bourbon": "^6.0.0",
     "codyhouse-framework": "^2.2.4",
     "include-media": "^1.4.9",
+    "localforage": "^1.7.3",
     "normalize.css": "^8.0.1",
     "system-font-css": "^2.0.2"
   },
