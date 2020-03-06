@@ -102,31 +102,38 @@ search.addEventListener("keyup", () => {
 // Check local storage
 if (typeof localStorage !== "undefined") {
   if (localForage.getItem("todos")) {
-    (async () => {
-      try {
-        // Get the keys within storage and add them to the todo list.
-        // const savedTodo = JSON.parse(localStorage.getItem('todos')); // localStorage
-        const savedTodo = await localForage.getItem("todos"); // localForage
+    const savedTodos = async () => {
+      const savedTodo = await localForage.getItem("todos"); // localForage
+
+      // If there is an error, display our own error.
+      if (savedTodo === null) {
+        throw new Error("Can't get todos or no todos saved!");
+      }
+
+      return savedTodo;
+    };
+    savedTodos()
+      .then(savedTodo => {
         // This code runs once the value has been loaded
         // from the offline store.
         if (!noTodo.classList.contains("hide")) {
           noTodo.classList.add("hide");
         }
+        console.log(savedTodo);
         savedTodo.forEach(todo => {
           todos.push(todo);
           generateTemplate(todo.title);
         });
-      } catch (e) {
-        localForage.removeItem("todos");
+      })
+      .catch(err => {
         if (noTodo.classList.contains("hide")) {
           noTodo.classList.remove("hide");
         }
         list.classList.add("hide");
         if (window.console) {
           // This code runs if there were any errors.
-          console.error(e);
+          console.error(err.message);
         }
-      }
-    })();
+      });
   }
 }
